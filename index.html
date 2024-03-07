@@ -1,458 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Your HTML Website</title>
-    <style>
-         @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;700&display=swap');
-        body {
-            font-family: 'Overpass', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            display: flex;
-            flex-direction: column;
-        }
+<div class="site-wrap">
 
-        header {
-            background-color: #6d6d6d;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        main {
-            display: flex;
-            flex-direction: row;
-            flex: 1;
-        }
-
-        nav {
-            background-color: #979595;
-            color: #fff;
-            width: 200px;
-            padding: 10px;
-        }
-
-        nav a {
-            display: block;
-            text-decoration: none;
-            color: #fff;
-            margin: 10px 0;
-        }
-
-        main-content {
-            flex: 1;
-            max-width: 800px;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        section {
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            color: #fff;
-        }
-
-        h2 {
-            color: #979595;
-        }
-
-        section {
-    margin-top: 0;  /* Remove top margin */
-    padding: 0;     /* Remove padding */
-}
-
-.chart {
-    margin: 0 auto; /* Center the charts horizontally */
-}
-        .tooltip {
-            position: absolute;
-            display: none;
-            pointer-events: none;
-        }
-
-        .tooltip-content {
-            background-color: rgba(255, 255, 255, 0.89); /* Background color for the box */
-            color: white;
-            padding: 10px; /* Padding for the content */
-            border-radius: 5px; /* Rounded corners for the box */
-        }
-
-        footer {
-            background-color: #6d6d6d;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        /* Style for the D3.js charts */
-        #chart1, #chart2 {
-            margin: 20px 0;
-        }
-    </style>
-    <!-- Include D3.js library -->
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
-</head>
-<body>
-    <header>
-        <h1>Decades of Life</h1>
-        <h3>An Analysis of NC Mortality Rates</h3>
-        <p>Brynna Miller</p>
-        
-    </header>
-    
-    <main>
-        <nav>
-            <a href="#">Home</a>
-        </nav>
-    
-        <main-content>
-            <section>
-                <p>Mortality rates are a vital window into public health, reflecting the well-being of a community and the effectiveness of healthcare systems. Our focus on North Carolina, a state with its unique demographics and health landscape, allows us to delve into the intricacies of regional health patterns. Over four transformative decades, from 1980 to around 2015, we will trace the ever-evolving story of life and death, shedding light on the factors that have shaped the health outcomes of North Carolinians and providing a glimpse into the state's public health challenges and successes.</p>
-                <p>Back in the 1980s, the state's demographics were evolving, with shifts in population, urbanization, and socioeconomic structures. The healthcare landscape was undergoing transformations, marked by advancements in medical technology and healthcare delivery. Yet, the state also faced formidable health challenges. In this backdrop, we'll introduce you to the data that fuels our exploration, and the meticulous data collection methods that provide the foundation for our narrative, ensuring that you are well-equipped to journey through the decades and unearth the stories hidden within the numbers.</p>
-            </section>
-            
-            <section>
-                <h2>Evolution of Mortality Rates</h2>
-                <p>Below visualizes change with a time series line chart spanning the four decades, from 1980 to 2015. This powerful visualization serves as our compass, guiding us through the shifting landscape of mortality rates in the Tar Heel State. As we navigate the lines and curves, we'll unravel the intricate trends, detect significant fluctuations, and seek answers to the questions of why. What societal shifts, healthcare advancements, or external influences have driven these changes?</p>
-                
-                <div id="chart1" width="800" height="400" class="chart"></div>
-                <div id="tooltip" class="tooltip" style="position: absolute; display: none;">
-                </div>
-            </section>
-            
-            <section>
-                <h2>Leading Causes of Mortality</h2>
-                <p>Next, we dive deep into the heart of health challenges by presenting a bar chart that unfolds the story of top 10 leading causes of mortality in NC for each of the four decades. A spotlight is shined on the changing dynamics of life and death within this visualization. The analysis carefully dissects the shifts in the causes of death, exploring the roles of diseases, healthcare advancements, and shifts in lifestyle. Together, we'll uncover the driving forces behind these changes, deciphering the intricate web of factors that have influenced the health outcomes of North Carolinians over half a century.</p>
-                
-                <div id="chart2" class="chart"></div>
-                
-              
-            </section>
-            <section>
-                <h2>Demographic Disparities</h2>
-                <p>Now, we turn our focus to the intricate tapestry of demographic disparities in mortality rates. Through the lens of gender, we navigate the multifaceted landscape of public health. The vivid heatmaps and compelling bar charts tell the tale of disparities etched across four decades, painting a picture of shifting health outcomes. While diving into this critical aspect of our narrative, we can also bring about engaging discussions on the social determinants of health, unraveling the powerful forces that drive disparities and impact the well-being of diverse communities across North Carolina.</p>
-                
-                <div id="chart3" class="chart"></div>
-
-                <p>Here, we summarize the key findings derived from our in-depth analysis, spotlighting the overarching trends in mortality rates that have unfolded over four transformative decades. By shedding light on the major factors driving these changes, we empower readers with a deeper understanding of the forces shaping public health in North Carolina. As we draw the curtain on this narrative, we invite reflection and introspection, contemplating the profound implications for the future of public health initiatives in the Tar Heel State. Our journey through time and data culminates in a call to action, where the lessons learned from the past inform the path forward.</p>
-
-            </section>
-            <section>
-                <p>This data story was remixed from <a href="https://projects.fivethirtyeight.com/mortality-rates-united-states/cardiovascular2/">35 Years of American Death By Ella Koeze</a>. The dataset used for this story is from the <a href="https://ghdx.healthdata.org/record/ihme-data/united-states-mortality-rates-county-1980-2014">Institue for Health Metrics and Evaluation</a>.</p>
-                
-            </section>
-        </main-content>
-    </main>
-    
-    <footer>
-        <p>&copy; Fall 2023 Brynna Miller</p>
-    </footer>
-    
-    <script>
-     // Set up the dimensions and margins of the chart
-const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-const width = 800 - margin.left - margin.right;
-const height = 400 - margin.top - margin.bottom;
-
-// Create an SVG element
-const svg1 = d3.select("#chart1")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
-const svg2 = d3.select("#chart2")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", 400 + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
-
-const svg3 = d3.select("#chart3")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", 400 + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
-
-// Load data from the CSV file
-d3.csv("nc_all_causes.csv").then(function(data) {
-    // Convert year and mortalityRate to numbers
-    data.forEach(function(d) {
-        d.year = +d.year_id;
-        d.mortalityRate = +d.mx;
-    });
-
-    // Create scales for x and y axes
-    const x = d3.scaleLinear().domain([d3.min(data, d => d.year), d3.max(data, d => d.year)]).range([0, width]);
-    const y = d3.scaleLinear().domain([0, d3.max(data, d => d.mortalityRate)]).range([height, 0]);
-
-    // Create the line generator
-    const line = d3.line()
-        .curve(d3.curveLinear)
-        .x(d => x(d.year))
-        .y(d => y(d.mortalityRate));
-
-    // Append the title at the top of the chart
-    svg1.append("text")
-    .attr("x", width / 2)
-    .attr("y", -25) // Adjust the vertical position as needed
-    .attr("text-anchor", "middle")
-    .attr("class", "chart-title")
-    .text("North Carolina Mortality Rates (1980-2015)");
-
-    // Append the line to the SVG
-    svg1.append("path")
-        .data([data])
-        .attr("class", "line")
-        .attr("d", line)
-        .attr("stroke", "#89CFF0")
-        .attr("fill", "none")
-        .attr("stroke-width", 2);
-
-    // Append x and y axes
-    svg1.append("g")
-        .attr("transform", `translate(0,${height})`)
-        .call(
-        d3.axisBottom(x)
-            .tickFormat(d3.format("d")) // Format ticks as integers (years)
-    );
-
-    svg1.append("g")
-        .call(d3.axisLeft(y));
-
-    // Optional: Add labels and titles
-    svg1.append("text")
-        .attr("class", "x-label")
-        .attr("text-anchor", "middle")
-        .attr("x", width / 2)
-        .attr("y", height + 40)
-        .text("Year");
-
-    svg1.append("text")
-        .attr("class", "y-label")
-        .attr("text-anchor", "middle")
-        .attr("transform", "rotate(-90)")
-        .attr("x", -height / 2)
-        .attr("y", -35)
-        .text("Mortality Rate");
-
-    const tooltip = document.getElementById("tooltip");
-    const tooltipContent = document.getElementById("tooltip-content");
-
-
-    // Create larger data points
-    svg1.selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("cx", d => x(d.year))
-        .attr("cy", d => y(d.mortalityRate))
-        .attr("r", 4)  // Increase the radius for larger data points
-        .attr("fill", "red")
-        .style("opacity", 0.6)  // Set the default opacity
-
-        .on("mouseover", function (event, d) {
-            d3.select(this) // Select the current data point
-                .transition()
-                .duration(200)
-                .attr("r", 5.5) // Increase the radius when hovered
-                .style("opacity", 1); // Increase opacity when hovered
-
-            tooltip.style.display = "block";  // Show the tooltip
-            tooltip.style.left = (event.pageX + 10) + "px"; // Adjust the position as needed
-            tooltip.style.top = (event.pageY - 10) + "px";  // Adjust the position as needed
-            tooltip.style.fontSize = '12px' ;
-            tooltip.style.backgroundColor = 'rgba(255, 255, 255, 0.89)';
-            tooltip.innerHTML = `Year: ${d.year}<br>Mortality Rate: ${d.mortalityRate}`;
-            
-        })
-        .on("mouseout", function () {
-            d3.select(this) // Select the current data point
-                .transition()
-                .duration(200)
-                .attr("r", 4) // Restore the original radius
-                .style("opacity", 0.6); // Restore the original opacity
-
-            tooltip.style.display = "none";  // Hide the tooltip
-        });
-
-    // You can add CSS styles for the chart as well.
-});
-
-d3.csv("nc_rates_by_cause.csv").then(function(data) {
-    // Group data by cause_name and calculate the total mortality rate for each cause
-    const groupedData = d3.group(data, d => d.cause_name);
-    const aggregatedData = Array.from(groupedData, ([key, values]) => ({ cause_name: key, total_mx: d3.sum(values, d => +d.mx) }));
-    
-    const width = 700;
-    const height = 400;
-    const radius = Math.min(width, height) / 2;
-    
-    // Create a color scale for the pie chart
-    const color = d3.scaleOrdinal(d3.schemeCategory10);
-    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-    
-    // Create a pie layout
-    const pie = d3.pie().value(d => d.total_mx);
-    
-    // Create an arc generator
-    const arc = d3.arc()
-        .innerRadius(0)
-        .outerRadius(radius);
-    
-    // Center the pie chart within the SVG
-    const g = svg2.append("g")
-        .attr("transform", `translate(${width / 2},${height / 2})`); // Center the pie chart
-    
-    // Create a tooltip element
-    const tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("display", "none");
-
-    // Create the pie chart
-    const path = g.selectAll("path")
-        .data(pie(aggregatedData))
-        .enter()
-        .append("path")
-        .attr("d", arc)
-        .attr("fill", (d, i) => color(i))
-        .on("mouseover", function(event, d, i) {
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .attr("d", d3.arc().innerRadius(0).outerRadius(radius * 1.1));
-
-            tooltip.html(`<strong>${d.data.cause_name}</strong><br>Mortality Rate: ${d.data.total_mx}`)
-                .style("left", (event.pageX + 10) + "px")
-                .style("top", (event.pageY - 20) + "px")
-                .style("display", "block");
-        })
-        .on("mouseout", function(event, d, i) {
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .attr("d", arc); // Restore the original color
-
-            tooltip.style("display", "none");
-        });
-    // Add a title to the pie chart
-    svg2.append("text")
-        .attr("x", width / 2)
-        .attr("y", -35) // Adjust the vertical position as needed
-        .attr("text-anchor", "middle")
-        .style("font-size", "18px")
-        .text("NC Mortality Rates by Cause");
-        
-
-});
-
-// Load the data from "nc_gender_mortality.csv"
-d3.csv("nc_gender_mortality.csv").then(function(data) {
-    // Group the data by sex_id
-    const groupedData = d3.group(data, d => d.sex);
-
-    // Specify the years for which you want to create the chart
-    const years = ["1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014"]; // Add more years as needed
-
-    // Filter and aggregate data for the selected years
-    const aggregatedData = years.map(year => {
-        return {
-            year: year,
-            data: Array.from(groupedData, ([key, values]) => ({
-                sex: key,
-                total_mx: d3.sum(values, d => +d.mx),
-            })),
-        };
-    });
-
-    // Define scales
-    const x3 = d3.scaleBand()
-        .domain(aggregatedData[0].data.map(d => d.sex))
-        .range([margin.left, width - margin.right])
-        .padding(0.1);
-
-    const y3 = d3.scaleLinear()
-        .domain([0, d3.max(aggregatedData.flatMap(d => d.data), d => d.total_mx)])
-        .nice()
-        .range([height - margin.bottom, margin.top]);
-
-    const color = d3.scaleOrdinal(d3.schemeCategory10);
-
-    // Create groups for each year
-    const groups = svg3.selectAll(".year-group")
-        .data(aggregatedData)
-        .enter()
-        .append("g")
-        .attr("class", "year-group")
-
-    // Create bars within each group
-    groups.selectAll("rect")
-        .data(d => d.data)
-        .enter()
-        .append("rect")
-        .attr("x", d => x3(d.sex))
-        .attr("y", d => y3(d.total_mx))
-        .attr("width", x3.bandwidth())
-        .attr("height", d => height - margin.bottom - y3(d.total_mx))
-        .attr("fill", d => color(d.sex));
-
-    // Create x-axis
-    svg3.append("g")
-        .attr("class", "x-axis")
-        .attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(d3.axisBottom(x3));
-
-    // Create y-axis
-    svg3.append("g")
-        .attr("class", "y-axis")
-        .attr("transform", `translate(${margin.left},0)`)
-        .call(d3.axisLeft(y3));
-
-    // Append x-axis label
-svg3.append("text")
-    .attr("class", "x-label")
-    .attr("x", width / 2)
-    .attr("y", height - 30)
-    .attr("dy", 30)
-    .style("text-anchor", "middle")
-    .text("Gender");
-
-    svg3.append("text")
-    .attr("class", "y-label")
-    .attr("x", -150)
-    .attr("y", margin.left -15)
-    .attr("dy", -40)
-    .style("text-anchor", "middle")
-    .attr("transform", "rotate(-90)")
-    .text("Overall Mortality Rate");
-
-// Append chart title
-svg3.append("text")
-    .attr("class", "chart-title")
-    .attr("x", width / 2)
-    .attr("y", margin.top / 2)
-    .style("text-anchor", "middle")
-    .text("Total NC Mortality Ratings Based On Gender");
-
-})
-
-
-
-
-
-
-
-
-
-    </script>
-   
-</body>
-</html>
+    <section data-scroll>
+      <h1 data-splitting>Scroll on down</h1>
+      <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor
+        at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur
+        pariaturlores sunt esse magni, ut, dignissimos.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti omnis tenetur est.
+        Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident error molestias. Ratione magni illo
+        sint vel velit ut excepturi consectetur suscipit, earum modi accusamus voluptatem nostrum, praesentium numquam, reiciendis
+        voluptas sit id quisquam. Consequatur in quis reprehenderit modi perspiciatis necessitatibus saepe, quidem, suscipit iure
+        natus dignissimos ipsam, eligendi deleniti accusantium, rerum quibusdam fugit perferendis et optio recusandae sed ratione.
+        Culpa, dolorum reprehenderit harum ab voluptas fuga, nisi eligendi natus maiores illum quas quos et aperiam aut doloremque
+        optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
+      <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores
+        omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni,
+        ut, dignissimos.</p>
+      <p>Adipisicing elit. Tempore tempora rerum.</p>
+    </section>
+  
+    <section data-scroll>
+      <h1 data-splitting>Articles fading in</h1>
+      <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor
+        at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur
+        pariaturlores sunt esse magni, ut, dignissimos.</p>
+      <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores
+        omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni,
+        ut, dignissimos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero
+        ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam!
+        Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+      <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores
+        omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores.</p>
+    </section>
+  
+    <section  data-scroll>
+      <h1 data-splitting>Character splitting</h1>
+      <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor
+        at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur
+        pariaturlores sunt esse magni, ut, dignissimos.</p>
+      <p>Lorem ipsum tempora in cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores
+        omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni,
+        ut, dignissimos. Adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariaturlores
+        sunt esse magni. Tempore tempora rerum, est autem cupiditate, corporis a qui libero.</p>
+    </section>
+  
+    <section  data-scroll>
+      <h1 data-splitting>Colors changing</h1>
+      <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem
+        dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora
+        in aspernatur pariaturlores sunt esse magni, ut, dignissimos.</p>
+      <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores
+        omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni,
+        ut, dignissimos.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti omnis tenetur est.
+        Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident error molestias. Ratione magni illo
+        sint vel velit ut excepturi consectetur suscipit, earum modi accusamus voluptatem nostrum, praesentium numquam, reiciendis
+        voluptas sit id quisquam. Consequatur in quis reprehenderit modi perspiciatis necessitatibus saepe, quidem, suscipit
+        iure natus dignissimos ipsam, eligendi deleniti accusantium, rerum quibusdam fugit perferendis et optio recusandae sed
+        ratione. Culpa, dolorum reprehenderit harum ab voluptas fuga, nisi eligendi natus maiores illum quas quos et aperiam
+        aut doloremque optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
+      <p>Adipisicing elit. Tempore tempora rerum.</p>
+    </section>
+  
+    <section  data-scroll>
+      <h1 data-splitting>The end</h1>
+      <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem
+        dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora
+        in aspernatur pariaturlores sunt esse magni, ut, dignissimos.</p>
+      <p>Adipisicing elit. Tempore tempora rerum.</p>
+      <p>Lorem ipsum cupiditate, corporis a qui libero ipsum tempora in delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores
+        omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam tempora in dolores sunt esse magni,
+        ut, dignissimos.</p>
+    </section>
+  
+  </div>
