@@ -12,29 +12,61 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+.chart {
+    margin: 0 auto; /* Center the charts horizontally */
+}
+        .tooltip {
+            position: absolute;
+            display: none;
+            pointer-events: none;
+        }
+
+        .tooltip-content {
+            background-color: rgba(255, 255, 255, 0.89); /* Background color for the box */
+            color: white;
+            padding: 10px; /* Padding for the content */
+            border-radius: 5px; /* Rounded corners for the box */
+        }
+
+        footer {
+            background-color: #6d6d6d;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Style for the D3.js charts */
+        #chart1, #chart2 {
+            margin: 20px 0;
+        }
 </style>
+<!-- Include D3.js library -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
 </head>
 <body>
 
 <!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-blue w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-blue" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
+<nav>
+  <div class="w3-top">
+    <div class="w3-bar w3-blue w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-blue" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <a href="#Introduction" class="nav-link w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Introduction</a>
+      <a href="#Magnitude + Longevity" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Magnitude + Longevity</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
+      <a href="#Conclusion" class="nav-link w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Conclusion</a>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="#introduction" class="nav-link w3-bar-item w3-button w3-padding-large">Introduction</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+      <a href="#conclusion" class="w3-bar-item w3-button w3-padding-large">Conclusion</a>
+    </div>
   </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
-  </div>
-</div>
+</nav>
 
 <!-- Header -->
 <header class="w3-container w3-blue w3-center" style="padding:128px 16px">
@@ -42,45 +74,69 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <h2> Exploring LGBTQ+ Visibility in Youth Cartoon Universes</h2>
 </header>
 
-<!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+<!-- Intro Grid -->
+<section id = "Introduction">
+  <a href = "https://brynnam.github.io/lgbtqcartoonchars/introduction"></a>
+  <div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content w3-">
+      <div>
+        <h1 style="text-align: center; margin-bottom: 40px;">Introduction</h1>
+        <h5 class="w3-margin">
+          In the dynamic landscape of youth cartoons, the representation of LGBTQ characters has emerged as a topic of increasing importance and scrutiny.
+          As society's understanding and acceptance of diverse identities evolve, so does the portrayal of LGBTQ characters in animated media.
+          Using a  <a href="https://www.kaggle.com/datasets/braddcarey/trans-characters-in-youth-cartoons" style="color:#2196F3;">detailed dataset</a>, 
+          I hope to dive into the evolution of LGBTQ representation in youth cartoons over time, 
+          examining potential trends and patterns in their portrayal across various dimensions such as studios, platforms, and character roles.
+          By exploring these features, I aim to answer and shed light on exactly how much progress has been made in terms of depicting LGBTQ identities 
+          within the realm of animated entertainment. 
+        </h5>
+  
+        <p class="w3-text-grey w3-margin w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
 
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-
-    <div class="w3-third w3-center">
-      <i class="fa fa-anchor w3-padding-64 w3-text-blue"></i>
-    </div>
-  </div>
-</div>
-
-<!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-third w3-center">
-      <i class="fa fa-coffee w3-padding-64 w3-text-blue w3-margin-right"></i>
-    </div>
-
-    <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="center">
+        <img src="LGBT-kids-content.jpg" style="width:auto;height:auto;" >
+      </div>
+  
+      
     </div>
   </div>
-</div>
+</section>
 
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+
+<!-- Magnitude + Longevity Grid -->
+<section id = "Magnitude + Longevity">
+  <a href = "https://brynnam.github.io/lgbtqcartoonchars/magnitude+longevity"></a>
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-half w3-center">
+        <button onclick="update(data1)">Data 1</button>
+        <button onclick="update(data2)">Data 2</button>
+        <div id="chart1"></div>
+      </div>
+      <div class="w3-half">
+        <h1>Magnitude + Longevity</h1>
+        <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+
+        <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section id = "Conclusion">
+  <a href = "https://brynnam.github.io/lgbtqcartoonchars/conclusion"></a>
+  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
 </div>
+</section>
+
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
@@ -105,6 +161,78 @@ function myFunction() {
     x.className = x.className.replace(" w3-show", "");
   }
 }
+</script>
+
+<script>
+
+  // create 2 data_set
+  var data1 = [
+     {group: "A", value: 4},
+     {group: "B", value: 16},
+     {group: "C", value: 8}
+  ];
+  
+  var data2 = [
+     {group: "A", value: 7},
+     {group: "B", value: 1},
+     {group: "C", value: 20}
+  ];
+  
+  // set the dimensions and margins of the graph
+  var margin = {top: 30, right: 30, bottom: 70, left: 60},
+      width = 460 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+  
+  // append the svg object to the body of the page
+  var svg = d3.select("#chart1")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+  
+            
+  
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data1.map(function(d) { return d.group; }))
+    .padding(0.2);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 20])
+    .range([ height, 0]);
+  svg.append("g")
+    .attr("class", "myYaxis")
+    .call(d3.axisLeft(y));
+
+  // A function that create / update the plot for a given variable:
+  function update(data) {
+
+    var u = svg.selectAll("rect")
+      .data(data)
+
+    u
+      .enter()
+      .append("rect")
+      .merge(u)
+      .transition()
+      .duration(1000)
+        .attr("x", function(d) { return x(d.group); })
+        .attr("y", function(d) { return y(d.value); })
+        .attr("width", x.bandwidth())
+        .attr("height", function(d) { return height - y(d.value); })
+        .attr("fill", "#69b3a2")
+}
+
+// Initialize the plot with the first dataset
+update(data1)
+
 </script>
 
 </body>
