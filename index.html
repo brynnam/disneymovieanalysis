@@ -36,8 +36,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         }
 
         /* Style for the D3.js charts */
-        #chart1, #chart2 {
+        #chart1 {
             margin: 20px 0;
+            font-family: "Montserrat", sans-serif
         }
 </style>
 <!-- Include D3.js library -->
@@ -116,7 +117,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
     <div class="w3-content">
       <div class="w3-half w3-center">
+        <h4 style="font-family: 'Montserrat', sans-serif;"> Character By Studio</h6>
         <div id="chart1"></div>
+        <p style="font-family: 'Montserrat', sans-serif;">Filter By Role Type</p>
         <button onclick="update('Total')">All</button>
         <button onclick="update('Main')">Main</button>
         <button onclick="update('Supporting')">Supporting</button>
@@ -125,11 +128,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </div>
       <div class="w3-half">
         <h1>Magnitude + Longevity</h1>
-        <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+        <h5 class="w3-padding-32">First, I want to examine the presence of lgbtq+ characters by analyzing not only the number of characters 
+          present but also how important they were to each show. Examining the longevity of these characters will give a closer look and 
+          clarify if the majority of the characters representing the community are being given the opportunity to stick around in these shows.</h5>
 
-        <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h6 class="w3-text-grey">This chart displays the total amount of characters by each studio, colored similar to a rainbow as a fun 
+          easter egg since a rainbow is very symbolic of the LGBTQ+ community as a whole. There’s also an option to view the studio character
+           count by the role type of character, whether it be the main character (in every episode) vs. a guest star (in one episode). It’s 
+           accompanied by tooltips to help with readability.</h6>
+
+        <h5 class="w3-padding-32">This gives us a look into if characters are truly being represented thoroughly, or if they’re still a large 
+          minority with studios just using them to fill a quota or seem more diverse. As you can see from the chart, many studios have a large 
+          amount of LGBTQ+ characters, including the main bigger studios with the most popular kids channels (Disney, Cartoon Network, etc.). If 
+          you utilize the filtering system and compare the character count by each role, there are very few main characters, and most LGBTQ+ 
+          characters we’ve seen so far have been guest stars, or recurring characters, meaning they guest-starred in only a few characters. </h5>
       </div>
       
     </div>
@@ -167,6 +179,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
     <div class="w3-content">
       <div class="w3-half w3-center">
+        
         <div id="chart1"></div>
         <button onclick="update('Total')">All</button>
         <button onclick="update('Main')">Main</button>
@@ -225,7 +238,7 @@ function myFunction() {
 
 <script>
   // set the dimensions and margins of the graph
-  const margin = {top: 30, right: 10, bottom: 70, left: 25},
+  const margin = {top: 30, right: 10, bottom: 20, left: 25},
       width = 460 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
   
@@ -236,6 +249,8 @@ function myFunction() {
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`)
+    
+    
 
   // Initialize the X axis
   const x = d3.scaleBand()
